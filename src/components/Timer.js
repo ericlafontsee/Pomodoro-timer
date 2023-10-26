@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import PlayButton from "./PlayButton";
 import PauseButton from "./PauseButton";
-import SettingsButton from "./SettingsButton";
+import SettingsButton from "./settings/SettingsButton";
+import SettingsContext from "./settings/SettingsContext";
 
 const Timer = () => {
-  const percentage = 66;
+  const settingsInfo = useContext(SettingsContext);
 
   return (
     <div>
       <CircularProgressbar
-        value={percentage}
-        text={`${percentage}%`}
+        value={60}
+        text={`60%`}
         styles={buildStyles({
           // Colors
           pathColor: "#f54e4e",
@@ -25,7 +26,7 @@ const Timer = () => {
         <PauseButton />
       </div>
       <div className="settingsContainer">
-        <SettingsButton />
+        <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
       </div>
     </div>
   );

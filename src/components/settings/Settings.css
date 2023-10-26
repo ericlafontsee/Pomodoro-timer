@@ -1,0 +1,72 @@
+.settings{
+  text-align: left;
+}
+
+label{
+  display: block;
+  margin: 1.25rem 0;
+  text-transform: capitalize;
+}
+
+/* React Slider Styles */
+.slider{
+  height: 40px;
+  border: 2px solid var(--red);
+  border-radius: 20px;
+}
+
+.thumb{
+  background-color: var(--red);
+  cursor: pointer; 
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.slider.green{
+  border: 2px solid var(--green);
+}
+.slider.green .thumb{
+  background-color: var(--green);
+}
+
+.backButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  line-height: 36px;
+  width: auto;
+  margin-top: 2rem;
+}
+
+.backButton > svg {
+  width: 36px !important;
+  margin-right: 5px;
+}
+
+/* Settings Button Styles */
+.settingsContainer {
+    margin-top: 1.25rem;
+  }
+  .settingsBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.4rem;
+    line-height: 36px;
+    width: auto;
+  }
+  
+  .settingsContainer > button > svg {
+    width: 36px !important;
+    margin-right: 5px;
+  }

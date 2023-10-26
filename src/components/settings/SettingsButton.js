@@ -1,5 +1,6 @@
 import React from "react";
 import { CiSettings } from 'react-icons/ci';
+import './Settings.css';
 
 const SettingsButton = (props) => {
   return (

@@ -20,29 +20,11 @@ button {
   border: 0;
   display: inline-block;
   width: 6.25rem;
+  cursor: pointer;
 }
 button > svg {
   width: 5rem !important;
   height: 5rem !important;
 }
 
-.settingsContainer {
-  margin-top: 1.25rem;
-}
-.settingsBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 1.4rem;
-  line-height: 36px;
-  width: auto;
-}
 
-.settingsContainer > button > svg {
-  width: 36px !important;
-  margin-right: 5px;
-}
