@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import PlayButton from "./PlayButton";
@@ -8,6 +8,41 @@ import SettingsContext from "./settings/SettingsContext";
 
 const Timer = () => {
   const settingsInfo = useContext(SettingsContext);
+  const [isPaused, setIsPaused] = useState(true);
+  const [mode, setMode] = useState("focus");
+  const [secondsLeft, setSecondsLeft] = useState(0);
+
+  function switchMode() {
+    const nextMode = "focus" ? "break" : "focus";
+    const nextSeconds =
+      (nextMode === "focus"
+        ? settingsInfo.focusMinutesfocus
+        : settingsInfo.breakMinutes) * 60;
+    setMode(nextMode);
+    setSecondsLeft(nextSeconds);
+  }
+
+  function tick() {
+    setSecondsLeft(secondsLeft - 1);
+  }
+
+  function initTimer() {
+    setSecondsLeft(settingsInfo.focusMinutes * 60);
+  }
+
+  useEffect(() => {
+    initTimer();
+    setInterval(() => {
+      if (isPaused) {
+        return;
+      }
+      if (secondsLeft) {
+        switchMode();
+      }
+
+      tick();
+    }, 1000);
+  }, [settingsInfo]);
 
   return (
     <div>
@@ -22,8 +57,7 @@ const Timer = () => {
         })}
       />
       <div className="playPauseContainer">
-        <PlayButton />
-        <PauseButton />
+        {isPaused ? <PlayButton /> : <PauseButton />}
       </div>
       <div className="settingsContainer">
         <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
