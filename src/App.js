@@ -6,20 +6,19 @@ import { useState } from "react";
 
 function App() {
   const [showSettings, setShowSettings] = useState(false);
-  const [focusMinutes, setFocusMinutes] = useState(45);
+  const [workMinutes, setWorkMinutes] = useState(45);
   const [breakMinutes, setBreakMinutes] = useState(15);
+
   return (
     <main>
-      <SettingsContext.Provider
-        value={{
-          showSettings,
-          setShowSettings,
-          focusMinutes,
-          breakMinutes,
-          setFocusMinutes,
-          setBreakMinutes
-        }}
-      >
+      <SettingsContext.Provider value={{
+        showSettings,
+        setShowSettings,
+        workMinutes,
+        breakMinutes,
+        setWorkMinutes,
+        setBreakMinutes,
+      }}>
         {showSettings ? <Settings /> : <Timer />}
       </SettingsContext.Provider>
     </main>
